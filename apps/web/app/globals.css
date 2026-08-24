@@ -45,14 +45,19 @@ button { cursor:pointer; }
 .mobile-menu { display:none; }
 
 /* brand intro */
-.intro { position:fixed; inset:0; z-index:100; display:grid; place-items:center; color:#fff; background:var(--ink); animation:introOut .35s 1.35s forwards; pointer-events:none; }
-.intro-inner { display:grid; justify-items:center; gap:18px; animation:introIn .7s ease both; }
-.intro-symbol { position:relative; width:84px; height:64px; }
-.intro-symbol:before,.intro-symbol:after { content:''; position:absolute; width:42px; height:42px; border:2px solid #d8caff; border-radius:50% 50% 44% 44%; top:10px; animation:meet 1.55s .25s ease-in-out both; }
-.intro-symbol:before { left:2px; transform:rotate(45deg); }
-.intro-symbol:after { right:2px; transform:rotate(-45deg); }
-.intro-word { font-size:14px; letter-spacing:.16em; text-transform:uppercase; color:#e6dfff; }
-@keyframes meet { 0%{transform:translateX(0) rotate(45deg);opacity:.2} 60%{opacity:1} 100%{transform:translateX(16px) rotate(45deg);opacity:1} }
+.intro { position:fixed; inset:0; z-index:100; display:grid; place-items:center; color:#fff; background:radial-gradient(circle at 50% 35%,#3c286e 0,transparent 36%),var(--ink); animation:introOut .45s 1.55s forwards; pointer-events:none; }
+.intro-inner { display:grid; justify-items:center; gap:12px; animation:introIn .7s ease both; }
+.intro-symbol { position:relative; width:118px; height:76px; display:grid; place-items:center; }
+.intro-heart { position:absolute; top:21px; color:#fff; filter:drop-shadow(0 8px 16px rgba(0,0,0,.18)); }
+.intro-heart-left { left:13px; transform:translateX(-25px) rotate(-16deg) scale(.86); animation:heartBondLeft 1.05s .16s cubic-bezier(.22,.8,.24,1) forwards; }
+.intro-heart-right { right:13px; color:#f3d9ff; transform:translateX(25px) rotate(16deg) scale(.86); animation:heartBondRight 1.05s .16s cubic-bezier(.22,.8,.24,1) forwards; }
+.intro-bond { position:absolute; left:50%; top:38px; width:4px; height:4px; border-radius:50%; background:#fff; box-shadow:0 0 0 0 rgba(216,202,255,.5); opacity:0; animation:bondSpark .8s 1.02s ease-out forwards; }
+.intro-word { margin-top:4px; font-size:14px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:#e6dfff; }
+.intro-kannada { color:#f3d9ff; font-size:14px; font-weight:600; letter-spacing:.02em; }
+.intro-subline { color:#aeb4cb; font-size:11px; }
+@keyframes heartBondLeft { 0% { opacity:.2; transform:translateX(-25px) rotate(-16deg) scale(.86); } 70% { opacity:1; } 100% { opacity:1; transform:translateX(30px) rotate(-8deg) scale(1); } }
+@keyframes heartBondRight { 0% { opacity:.2; transform:translateX(25px) rotate(16deg) scale(.86); } 70% { opacity:1; } 100% { opacity:1; transform:translateX(-30px) rotate(8deg) scale(1); } }
+@keyframes bondSpark { 0% { opacity:0; transform:scale(.4); box-shadow:0 0 0 0 rgba(216,202,255,.5); } 45% { opacity:1; transform:scale(1); box-shadow:0 0 0 12px rgba(216,202,255,0); } 100% { opacity:0; transform:scale(.7); } }
 @keyframes introIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
 @keyframes introOut { to{opacity:0;visibility:hidden} }
 @media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto} *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important} .intro{display:none} }
@@ -429,3 +434,27 @@ button { cursor:pointer; }
 .product-video-sound { position:absolute; right:16px; bottom:16px; width:42px; height:42px; display:grid; place-items:center; pointer-events:auto; border:1px solid rgba(255,255,255,.5); border-radius:50%; color:#fff; background:rgba(24,35,61,.48); backdrop-filter:blur(9px); transition:.2s; }
 .product-video-sound:hover { background:var(--plum); transform:translateY(-2px); }
 @media (max-width:760px) { .product-video-section { padding-top:52px; padding-bottom:52px; } .product-video-card { grid-template-columns:1fr; gap:10px; padding:12px; border-radius:22px; } .product-video-copy { padding:20px 14px 12px; } .product-video-copy h2 { font-size:34px; } .product-video-actions { align-items:flex-start; flex-direction:column; } .product-video-frame,.product-video-element { min-height:270px; } }
+
+
+
+/* bilingual brand and inclusive communities */
+.hero-bilingual-tagline { display:grid; gap:3px; width:max-content; max-width:100%; margin-top:23px; padding-left:14px; border-left:2px solid var(--rose); }
+.hero-bilingual-tagline strong { color:var(--plum-dark); font-size:14px; letter-spacing:-.02em; }
+.hero-bilingual-tagline span { color:var(--ink-soft); font-size:13px; }
+.inclusive-copy { align-self:center; }
+.inclusive-mantra { display:grid; gap:3px; margin-top:23px; padding:13px 15px; border:1px solid rgba(255,255,255,.16); border-radius:12px; background:rgba(255,255,255,.06); }
+.inclusive-mantra strong { color:#fff; font-size:13px; }
+.inclusive-mantra span { color:#f3d9ff; font-size:12px; }
+.inclusive-list { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.inclusive-item { position:relative; min-height:190px; transition:transform .25s ease,border-color .25s ease,background .25s ease; }
+.inclusive-item:hover { transform:translateY(-5px); border-color:rgba(216,202,255,.48); background:rgba(255,255,255,.09); }
+.inclusive-item-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:22px; color:#d8caff; }
+.inclusive-number { color:#a8efe0; font-size:10px; font-weight:800; letter-spacing:.12em; }
+.inclusive-item strong { line-height:1.35; }
+.inclusive-item strong small { color:#f3d9ff; font-size:11px; font-weight:600; }
+.inclusive-item .inclusive-kannada { display:block; color:#f3d9ff; font-size:12px; line-height:1.5; margin-top:7px; }
+.inclusive-item > span:last-child { display:block; color:#c3cad9; font-size:11px; line-height:1.55; margin-top:9px; }
+@media (max-width:760px) { .hero-bilingual-tagline { margin-top:18px; } .hero-bilingual-tagline strong { font-size:12px; } .hero-bilingual-tagline span { font-size:11px; } .inclusive-list { grid-template-columns:1fr; } .inclusive-item { min-height:0; } .intro-kannada { font-size:12px; } }
+
+
+:lang(kn) { font-family:'Noto Sans Kannada','Nirmala UI','Tunga',sans-serif; }
