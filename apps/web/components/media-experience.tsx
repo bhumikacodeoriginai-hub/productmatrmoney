@@ -1,14 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { AnimatePresence, motion, PanInfo } from "framer-motion";
-import { ArrowRight, Check, Heart, LockKeyhole, MessageCircle, RotateCcw, ShieldCheck, Star, Video } from "lucide-react";
+import { ArrowRight, Check, Heart, LockKeyhole, MessageCircle, Pause, Play, RotateCcw, ShieldCheck, Star, Video, Volume2, VolumeX } from "lucide-react";
 import Link from "next/link";
 import { engagementMoments, Profile, ProfileMedia } from "@/lib/mock-data";
+import { PRODUCT_VIDEO_DURATION, PRODUCT_VIDEO_POSTER, PRODUCT_VIDEO_SRC } from "@/lib/media";
 import { MediaPreview, Toast, VerifiedBadge } from "./ui";
 
+export function ProductVideo() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+  const [playing, setPlaying] = useState(true);
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) { void video.play().then(() => setPlaying(true)).catch(() => setPlaying(false)); }
+    else { video.pause(); setPlaying(false); }
+  };
+  const toggleSound = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    const nextMuted = !muted;
+    video.muted = nextMuted;
+    setMuted(nextMuted);
+    if (video.paused) { void video.play().then(() => setPlaying(true)).catch(() => setPlaying(false)); }
+  };
+  return <section className="section product-video-section" aria-labelledby="product-video-title"><div className="container"><div className="product-video-card"><div className="product-video-copy"><span className="eyebrow">See Advaita in motion</span><h2 id="product-video-title">A more human way to begin.</h2><p>Discover a calmer matrimony experience built around trust, privacy and conversations that feel real.</p><div className="product-video-actions"><button className="btn btn-primary" onClick={toggleSound} aria-label={muted ? "Turn product video sound on" : "Mute product video"}>{muted ? <VolumeX size={16} /> : <Volume2 size={16} />} {muted ? "Turn sound on" : "Mute sound"}</button><span className="product-video-note"><Video size={14} /> Product introduction · {PRODUCT_VIDEO_DURATION}</span></div></div><div className="product-video-frame"><video ref={videoRef} className="product-video-element" src={PRODUCT_VIDEO_SRC} poster={PRODUCT_VIDEO_POSTER} muted={muted} loop playsInline autoPlay preload="metadata" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} aria-label="Advaita Matrimony product introduction" /><div className="product-video-shade" /><div className="product-video-topline"><span className="pill pill-quiet"><ShieldCheck size={12} /> Privacy-first by design</span><span className="product-video-duration">{PRODUCT_VIDEO_DURATION}</span></div><div className="product-video-controls"><button className="media-play" onClick={togglePlay} aria-label={playing ? "Pause product video" : "Play product video"}>{playing ? <Pause size={16} fill="currentColor" /> : <Play size={16} fill="currentColor" />}</button><button className="product-video-sound" onClick={toggleSound} aria-label={muted ? "Turn product video sound on" : "Mute product video"}>{muted ? <VolumeX size={17} /> : <Volume2 size={17} />}</button></div></div></div></div></section>;
+}
+
 export function MediaMatchSection({ profiles }: { profiles: Profile[] }) {
-  return <section className="section media-match-section"><div className="container"><div className="media-match-header"><div className="section-head"><span className="eyebrow">See the person behind the profile</span><h2>Small moments make a better first impression.</h2><p>Move through a few thoughtful profiles, watch a short introduction when it is shared with you, and connect only when it feels right.</p></div><span className="pill pill-verified"><ShieldCheck size={13} /> Consent-led media</span></div><div className="media-match-grid"><MatchDeck profiles={profiles} /><div className="moment-stack"><div className="media-callout"><div className="media-callout-icon"><Video size={19} /></div><div><strong>Profile introductions</strong><p>Short videos add context without turning the search into a noisy social feed.</p></div></div><div className="media-callout"><div className="media-callout-icon"><LockKeyhole size={19} /></div><div><strong>Private by default</strong><p>Photos and videos can be public, shared after connection, request-only or private.</p></div></div><div className="media-callout"><div className="media-callout-icon"><MessageCircle size={19} /></div><div><strong>Conversation starters</strong><p>Every profile can answer one gentle prompt to make the first message easier.</p></div></div></div></div></div></section>;
+  return <section className="section media-match-section"><div className="container"><div className="media-match-header"><div className="section-head"><span className="eyebrow">See the person behind the profile</span><h2>Small details make a better first impression.</h2><p>Move through a few thoughtful profiles, understand what makes each person distinct, and connect only when it feels right.</p></div><span className="pill pill-verified"><ShieldCheck size={13} /> Consent-led profiles</span></div><div className="media-match-grid"><MatchDeck profiles={profiles} /><div className="moment-stack"><div className="media-callout"><div className="media-callout-icon"><ShieldCheck size={19} /></div><div><strong>Profiles with intention</strong><p>Clear context helps you decide who feels aligned without turning the search into a noisy social feed.</p></div></div><div className="media-callout"><div className="media-callout-icon"><LockKeyhole size={19} /></div><div><strong>Private by default</strong><p>Photos and videos can be public, shared after connection, request-only or private.</p></div></div><div className="media-callout"><div className="media-callout-icon"><MessageCircle size={19} /></div><div><strong>Conversation starters</strong><p>Every profile can answer one gentle prompt to make the first message easier.</p></div></div></div></div></div></section>;
 }
 
 export function MatchDeck({ profiles }: { profiles: Profile[] }) {

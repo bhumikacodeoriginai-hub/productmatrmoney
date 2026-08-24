@@ -1,4 +1,7 @@
-// The Git-managed demo asset is served from the web media folder so web and Expo
-// always show the same introduction until production media moves to a CDN.
-export const ADVAITA_INTRO_VIDEO =
+// The product introduction is stored once in the public Git media folder so web and
+// Expo show the same source without bundling a second 2.5 MB copy.
+export const PRODUCT_VIDEO_SRC =
   "https://raw.githubusercontent.com/bhumikacodeoriginai-hub/productmatrmoney/main/apps/web/public/media/profiles/ananya/advaithamatrimony.mp4";
+export const PRODUCT_VIDEO_POSTER =
+  "https://raw.githubusercontent.com/bhumikacodeoriginai-hub/productmatrmoney/main/apps/web/public/media/product/advaithamatrimony-poster.svg";
+export const PRODUCT_VIDEO_DURATION = "0:10";
