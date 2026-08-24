@@ -1,0 +1,12 @@
+{
+  "name": "advaita-matrimony",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "npm run dev --workspace @advaita/web",
+    "build": "npm run build --workspace @advaita/web",
+    "lint": "npm run lint --workspace @advaita/web",
+    "typecheck": "npm run typecheck --workspace @advaita/web"
+  }
+}

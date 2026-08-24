@@ -1,0 +1,1 @@
+{"expo":{"name":"Advaita Matrimony","slug":"advaita-matrimony","scheme":"advaita","version":"1.0.0","orientation":"portrait","userInterfaceStyle":"light","plugins":["expo-router"],"ios":{"supportsTablet":true,"bundleIdentifier":"com.advaita.matrimony"},"android":{"package":"com.advaita.matrimony","adaptiveIcon":{"backgroundColor":"#18233D"}}}}
