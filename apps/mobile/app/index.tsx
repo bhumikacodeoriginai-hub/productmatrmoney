@@ -3,8 +3,10 @@ import { Animated, Easing, Pressable, StyleSheet, Text, View } from "react-nativ
 import { router } from "expo-router";
 import { Heart, ShieldCheck } from "lucide-react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { useLanguage } from "../lib/language";
 
 export default function Splash() {
+  const { t } = useLanguage();
   const [ready, setReady] = useState(false);
   const bond = useRef(new Animated.Value(0)).current;
   const pulse = useRef(new Animated.Value(0)).current;
@@ -53,11 +55,11 @@ export default function Splash() {
         <Animated.View style={[styles.heart, styles.heartRight, rightHeartStyle]}><Heart size={34} color="#F3D9FF" fill="#F3D9FF" /></Animated.View>
       </View>
       <Text style={styles.brand}>Advaita Matrimony</Text>
-      <Text style={styles.tagline}>Where hearts meet, lives belong.</Text>
-      <Text style={styles.kannada}>ಮನಗಳು ಸೇರುವ, ಬದುಕುಗಳು ಬೆಸೆಯುವ ತಾಣ.</Text>
+      <Text style={styles.tagline}>{t("tagline")}</Text>
+      <Text style={styles.kannada}>{t("kannadaTagline")}</Text>
     </View>
-    <Animated.View style={{ opacity: reveal }}>{ready && <Pressable style={styles.button} onPress={() => router.replace("/(tabs)")} accessibilityRole="button" accessibilityLabel="Begin your Advaita Matrimony journey"><Text style={styles.buttonText}>Begin your journey</Text></Pressable>}</Animated.View>
-    <View style={styles.footer}><ShieldCheck size={15} color="#91E5D5" /><Text style={styles.footText}>Privacy-first · Inclusive by design</Text></View>
+    <Animated.View style={{ opacity: reveal }}>{ready && <Pressable style={styles.button} onPress={() => router.replace("/(tabs)")} accessibilityRole="button" accessibilityLabel={t("beginJourney")}><Text style={styles.buttonText}>{t("beginJourney")}</Text></Pressable>}</Animated.View>
+    <View style={styles.footer}><ShieldCheck size={15} color="#91E5D5" /><Text style={styles.footText}>{t("privacyInclusive")}</Text></View>
   </LinearGradient>;
 }
 

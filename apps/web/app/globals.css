@@ -458,3 +458,13 @@ button { cursor:pointer; }
 
 
 :lang(kn) { font-family:'Noto Sans Kannada','Nirmala UI','Tunga',sans-serif; }
+
+
+/* language switcher */
+.language-switcher { display:inline-flex; align-items:center; gap:4px; min-height:34px; padding:3px 5px; border:1px solid var(--line); border-radius:10px; color:var(--ink-soft); background:#fff; font-size:10px; font-weight:700; }
+.language-switcher > svg { color:var(--plum); margin:0 2px; }
+.language-option { border:0; border-radius:7px; padding:5px 6px; color:var(--ink-soft); background:transparent; font-size:10px; font-weight:800; cursor:pointer; }
+.language-option:hover,.language-option.active { color:var(--plum-dark); background:var(--lavender); }
+.language-divider { color:#c2c5d0; }
+.language-switcher-compact { min-height:32px; }
+@media (max-width:760px) { .public-nav .language-switcher { margin-right:2px; } .app-topbar .language-switcher { min-height:30px; } .app-topbar .language-option { padding-left:5px; padding-right:5px; } }
