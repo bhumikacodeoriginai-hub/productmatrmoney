@@ -4,8 +4,9 @@ import { router, useLocalSearchParams } from "expo-router";
 import { ArrowLeft, Check, Heart, LockKeyhole, MessageCircle, ShieldCheck, Star } from "lucide-react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { MediaBadge, MediaCover } from "../../components/media-card";
+import { ADVAITA_INTRO_VIDEO } from "../../lib/media";
 
-const videoDemo="https://videos.pexels.com/video-files/853800/853800-hd_1920_1080_30fps.mp4";
+const videoDemo=ADVAITA_INTRO_VIDEO;
 const profileMap={
   rhea:{name:"Rhea Menon",age:"31",meta:"Architect · Mumbai",score:"88%",about:"An architect with a soft spot for old cities, strong coffee and building a warm home filled with books.",media:[{kind:"image" as const,src:"https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=85"},{kind:"image" as const,src:"https://images.unsplash.com/photo-1546961342-ea5f68f2f7dc?auto=format&fit=crop&w=800&q=85"}]},
   ananya:{name:"Ananya Rao",age:"29",meta:"Product Designer · Bengaluru",score:"92%",about:"Curious, kind and quietly ambitious. I enjoy long walks, thoughtful conversations and making space for people to be themselves.",media:[{kind:"video" as const,src:videoDemo,poster:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=85",duration:"0:18"},{kind:"image" as const,src:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=85"}]},

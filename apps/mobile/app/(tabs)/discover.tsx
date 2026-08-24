@@ -4,8 +4,9 @@ import { Heart, RotateCcw, SlidersHorizontal, Star } from "lucide-react-native";
 import { router } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { MediaBadge, MediaCover } from "../../components/media-card";
+import { ADVAITA_INTRO_VIDEO } from "../../lib/media";
 
-const videoDemo = "https://videos.pexels.com/video-files/853800/853800-hd_1920_1080_30fps.mp4";
+const videoDemo = ADVAITA_INTRO_VIDEO;
 const cards=[
   {id:"meera",name:"Meera Shah",meta:"30 · Financial Analyst · Pune",score:"79%",prompt:"I value independence, direct conversations and people who keep their word.",media:[{kind:"image" as const,src:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=700&q=80"}]},
   {id:"isha",name:"Isha Kapoor",meta:"27 · Clinical Psychologist · Delhi",score:"76%",prompt:"A green flag I bring: I ask questions before I make assumptions.",media:[{kind:"image" as const,src:"https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=700&q=80"}]},
