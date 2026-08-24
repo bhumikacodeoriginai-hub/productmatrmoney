@@ -63,7 +63,7 @@ export const uiTranslations: Record<string, string> = {
   "Physically Challenged / Locomotor Impairment": "ದೈಹಿಕ / ಚಲನ ಅಸಮರ್ಥತೆ",
   "Hearing & Speech Impaired": "ಶ್ರವಣ ಮತ್ತು ಮಾತಿನ ಅಸಮರ್ಥತೆ",
   "Vitiligo / Skin Condition Specific Profiles": "ವಿಟಿಲಿಗೋ / ಚರ್ಮದ ಸ್ಥಿತಿಗೆ ಸಂಬಂಧಿಸಿದ ಪ್ರೊಫೈಲ್‌ಗಳು",
-  "General Public": "ಸಾಮಾನ್ಯ ಪ್ರೊಫೈಲ್‌ಗಳು",
+  "General Public": "ಸಾಮಾನ್ಯ ವಿವಾಹ ಪ್ರೊಫೈಲ್‌ಗಳು",
   "(Divyangjan)": "(ದಿವ್ಯಾಂಗಜನ)",
   "(Deaf & Mute)": "(ಕಿವುಡರು ಮತ್ತು ಮೂಕರು)",
   "(Standard Matrimony)": "(ಸಾಮಾನ್ಯ ವಿವಾಹ)",
@@ -171,14 +171,14 @@ export const uiTranslations: Record<string, string> = {
   "Your matches are getting better.": "ನಿಮ್ಮ ಹೊಂದಾಣಿಕೆಗಳು ಉತ್ತಮವಾಗುತ್ತಿವೆ.",
   "Profile strength": "ಪ್ರೊಫೈಲ್ ಬಲ",
   "Improve profile": "ಪ್ರೊಫೈಲ್ ಸುಧಾರಿಸಿ",
-  "Discover": "ಹುಡುಕಿ",
+  "Discover": "ಅನ್ವೇಷಿಸಿ",
   "Filters": "ಫಿಲ್ಟರ್‌ಗಳು",
   "Verified only": "ಪರಿಶೀಲಿತ ಮಾತ್ರ",
   "Reset": "ಮರುಹೊಂದಿಸಿ",
   "Save search": "ಹುಡುಕಾಟ ಉಳಿಸಿ",
   "Matches": "ಹೊಂದಾಣಿಕೆಗಳು",
   "Interests": "ಆಸಕ್ತಿಗಳು",
-  "Shortlisted": "ಆಯ್ದವರು",
+  "Shortlisted": "ಆಯ್ಕೆಪಟ್ಟಿ",
   "Messages": "ಸಂದೇಶಗಳು",
   "Notifications": "ಅಧಿಸೂಚನೆಗಳು",
   "Mark all as read": "ಎಲ್ಲವನ್ನೂ ಓದಿದಂತೆ ಗುರುತಿಸಿ",
@@ -232,7 +232,7 @@ export const uiTranslations: Record<string, string> = {
   "Profile note": "ಪ್ರೊಫೈಲ್ ಟಿಪ್ಪಣಿ",
   "We’ll show you a different profile": "ನಾವು ನಿಮಗೆ ಬೇರೆ ಪ್ರೊಫೈಲ್ ತೋರಿಸುತ್ತೇವೆ",
   "Pass this profile": "ಈ ಪ್ರೊಫೈಲ್ ಬಿಟ್ಟುಹೋಗಿ",
-  "Shortlist this profile": "ಈ ಪ್ರೊಫೈಲ್ ಆಯ್ಕೆಮಾಡಿ",
+  "Shortlist this profile": "ಈ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಆಯ್ಕೆಪಟ್ಟಿಗೆ ಸೇರಿಸಿ",
   "Close navigation": "ನ್ಯಾವಿಗೇಶನ್ ಮುಚ್ಚಿ",
   "Close navigation overlay": "ನ್ಯಾವಿಗೇಶನ್ ಓವರ್‌ಲೇ ಮುಚ್ಚಿ",
   "Primary navigation": "ಮುಖ್ಯ ನ್ಯಾವಿಗೇಶನ್",
@@ -242,9 +242,9 @@ export const uiTranslations: Record<string, string> = {
   "Search": "ಹುಡುಕಿ",
   "Send interest": "ಆಸಕ್ತಿ ಕಳುಹಿಸಿ",
   "Pass profile": "ಪ್ರೊಫೈಲ್ ಬಿಟ್ಟುಹೋಗಿ",
-  "Shortlist profile": "ಪ್ರೊಫೈಲ್ ಆಯ್ಕೆಮಾಡಿ",
+  "Shortlist profile": "ಪ್ರೊಫೈಲ್ ಅನ್ನು ಆಯ್ಕೆಪಟ್ಟಿಗೆ ಸೇರಿಸಿ",
   "Swipe left to pass · right to send interest · tap actions for control": "ಬಿಟ್ಟುಹೋಗಲು ಎಡಕ್ಕೆ · ಆಸಕ್ತಿ ಕಳುಹಿಸಲು ಬಲಕ್ಕೆ · ನಿಯಂತ್ರಣಕ್ಕಾಗಿ ಕ್ರಿಯೆಗಳನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ",
-  "Back to discover": "ಹುಡುಕಾಟಕ್ಕೆ ಹಿಂತಿರುಗಿ",
+  "Back to discover": "ಅನ್ವೇಷಣೆಗೆ ಹಿಂತಿರುಗಿ",
   "A PREFERENCE MATCH": "ಆದ್ಯತೆ ಹೊಂದಾಣಿಕೆ",
   "Preference match": "ಆದ್ಯತೆ ಹೊಂದಾಣಿಕೆ",
   "Privacy controlled": "ಗೌಪ್ಯತೆ ನಿಯಂತ್ರಿತ",
@@ -267,13 +267,13 @@ export function translateText(value: string, language: SupportedLanguage) {
   if (language === "kn" && interest) return `${interest[1]} ಅವರಿಗೆ ಆಸಕ್ತಿ ಕಳುಹಿಸಲಾಗಿದೆ`;
   if (language === "en" && value.endsWith(" ಅವರಿಗೆ ಆಸಕ್ತಿ ಕಳುಹಿಸಲಾಗಿದೆ")) return `Interest sent to ${value.replace(" ಅವರಿಗೆ ಆಸಕ್ತಿ ಕಳುಹಿಸಲಾಗಿದೆ", "")}`;
   const saved = value.match(/^(.+) saved to your shortlist$/);
-  if (language === "kn" && saved) return `${saved[1]} ಅವರನ್ನು ನಿಮ್ಮ ಆಯ್ದವರ ಪಟ್ಟಿಗೆ ಉಳಿಸಲಾಗಿದೆ`;
-  if (language === "en" && value.endsWith(" ಅವರನ್ನು ನಿಮ್ಮ ಆಯ್ದವರ ಪಟ್ಟಿಗೆ ಉಳಿಸಲಾಗಿದೆ")) return `${value.replace(" ಅವರನ್ನು ನಿಮ್ಮ ಆಯ್ದವರ ಪಟ್ಟಿಗೆ ಉಳಿಸಲಾಗಿದೆ", "")} saved to your shortlist`;
+  if (language === "kn" && saved) return `${saved[1]} ಅವರನ್ನು ಆಯ್ಕೆಪಟ್ಟಿಗೆ ಸೇರಿಸಲಾಗಿದೆ`;
+  if (language === "en" && value.endsWith(" ಅವರನ್ನು ಆಯ್ಕೆಪಟ್ಟಿಗೆ ಸೇರಿಸಲಾಗಿದೆ")) return `${value.replace(" ಅವರನ್ನು ಆಯ್ಕೆಪಟ್ಟಿಗೆ ಸೇರಿಸಲಾಗಿದೆ", "")} saved to your shortlist`;
   const openedProfile = value.match(/^Open (.+)'s profile$/);
   if (language === "kn" && openedProfile) return `${openedProfile[1]} ಅವರ ಪ್ರೊಫೈಲ್ ತೆರೆಯಿರಿ`;
   if (language === "en" && value.endsWith(" ಅವರ ಪ್ರೊಫೈಲ್ ತೆರೆಯಿರಿ")) return `Open ${value.replace(" ಅವರ ಪ್ರೊಫೈಲ್ ತೆರೆಯಿರಿ", "")}'s profile`;
   const shortlistAction = value.match(/^(Add|Remove) (.+) (to|from) shortlist$/);
-  if (language === "kn" && shortlistAction) return shortlistAction[1] === "Add" ? `${shortlistAction[2]} ಅವರನ್ನು ಆಯ್ದವರ ಪಟ್ಟಿಗೆ ಸೇರಿಸಿ` : `${shortlistAction[2]} ಅವರನ್ನು ಆಯ್ದವರ ಪಟ್ಟಿಯಿಂದ ತೆಗೆದುಹಾಕಿ`;
+  if (language === "kn" && shortlistAction) return shortlistAction[1] === "Add" ? `${shortlistAction[2]} ಅವರನ್ನು ಆಯ್ಕೆಪಟ್ಟಿಗೆ ಸೇರಿಸಿ` : `${shortlistAction[2]} ಅವರನ್ನು ಆಯ್ಕೆಪಟ್ಟಿಯಿಂದ ತೆಗೆದುಹಾಕಿ`;
   const count = value.match(/^(\d+) new compatible profiles were added today$/);
   if (language === "kn" && count) return `ಇಂದು ${count[1]} ಹೊಸ ಹೊಂದಾಣಿಕೆಯ ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ಸೇರಿಸಲಾಗಿದೆ`;
   const kannadaCount = value.match(/^ಇಂದು (\d+) ಹೊಸ ಹೊಂದಾಣಿಕೆಯ ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ಸೇರಿಸಲಾಗಿದೆ$/);
