@@ -42,3 +42,10 @@ The presentation layer now includes a consent-led media model for profile photos
 This is still mock data. Replace the sample remote portrait/video URLs with owned, consented, compressed assets delivered through the future private media pipeline described in the proposal. Production must enforce the same visibility states server-side; UI labels alone are not access control.
 
 The retention direction intentionally avoids manipulative streaks or noisy infinite feeds. It uses a small daily set of profiles, prompt-led conversation starts, privacy check-ins, profile-strength progress, and clear next actions. These are good candidates for real event instrumentation later: media_played, media_paused, interest_sent, shortlist_added, profile_prompt_answered, privacy_reviewed, and conversation_started.
+
+
+## Performance and Bootstrap update
+
+The web layer now uses Bootstrap 5.3.8 utilities/grid classes alongside the Advaita design tokens and custom brand components. This is not a legacy Bootstrap template: Bootstrap is used as a responsive foundation while the visual identity, dashboard cards, motion, media states and accessibility remain custom. The official Bootstrap guidance recommends the 5.3 line and selective optimization where possible.
+
+Loading is improved by removing the render-blocking remote font import, showing the branded intro only once per browser session and shortening it, adding a lightweight Next loading skeleton, lazy-loading profile images, using `preload="none"` for non-feature videos, and limiting autoplay to the intentional dashboard spotlight/active discovery card. The dashboard now has a video introduction spotlight, animated card/media states, a media count badge and Bootstrap responsive spacing/grid utilities.

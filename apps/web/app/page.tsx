@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, ChevronRight, Heart, LockKeyhole, MessageCircle, Search, ShieldCheck, Sparkles, Star, Users, Wifi } from "lucide-react";
@@ -8,7 +9,7 @@ import { Brand, ProfileCard } from "@/components/ui";
 import { MediaMatchSection, EngagementLoop } from "@/components/media-experience";
 import { profiles } from "@/lib/mock-data";
 
-function Intro() { return <div className="intro" aria-hidden="true"><div className="intro-inner"><div className="intro-symbol" /><div className="intro-word">Advaita Matrimony</div><span style={{ fontSize:11, color:"#aeb4cb" }}>Meaningful connections. Built on trust.</span></div></div>; }
+function Intro() { const [visible, setVisible] = useState(false); useEffect(() => { if (sessionStorage.getItem("advaita-intro-seen")) return; sessionStorage.setItem("advaita-intro-seen", "1"); setVisible(true); const timer = window.setTimeout(() => setVisible(false), 1700); return () => window.clearTimeout(timer); }, []); if (!visible) return null; return <div className="intro" aria-hidden="true"><div className="intro-inner"><div className="intro-symbol" /><div className="intro-word">Advaita Matrimony</div><span style={{ fontSize:11, color:"#aeb4cb" }}>Meaningful connections. Built on trust.</span></div></div>; }
 
 export default function Home() {
   return <><Intro /><PublicNav /><main>
