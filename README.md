@@ -33,3 +33,12 @@ All data, authentication, OTP, interests, messages, membership buttons, support 
 ## QA checklist
 
 The primary manual review path is: landing intro → navigation → login/OTP mock → onboarding step progression → dashboard → discover search/filter → profile actions → interests → messaging → notifications/settings → admin member approval. Review widths from 320px through desktop widths, keyboard focus, visible labels, reduced-motion mode, and native safe-area layouts before client approval.
+
+
+## Media-first experience update
+
+The presentation layer now includes a consent-led media model for profile photos and short introductions. On the web, the landing page and member discovery surfaces include draggable Framer Motion cards, autoplay-muted video previews with pause controls, media galleries, privacy labels, daily recommendation prompts, and local preview of image/video uploads during onboarding. On native, the Expo app includes native `expo-video` previews, safe-area-aware animated discovery cards, press/swipe actions, dynamic profile detail media, and an intentional daily discovery loop.
+
+This is still mock data. Replace the sample remote portrait/video URLs with owned, consented, compressed assets delivered through the future private media pipeline described in the proposal. Production must enforce the same visibility states server-side; UI labels alone are not access control.
+
+The retention direction intentionally avoids manipulative streaks or noisy infinite feeds. It uses a small daily set of profiles, prompt-led conversation starts, privacy check-ins, profile-strength progress, and clear next actions. These are good candidates for real event instrumentation later: media_played, media_paused, interest_sent, shortlist_added, profile_prompt_answered, privacy_reviewed, and conversation_started.

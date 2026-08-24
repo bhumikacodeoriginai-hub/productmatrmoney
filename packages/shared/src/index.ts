@@ -1,7 +1,10 @@
 export type ProfileCategory = "general" | "locomotor" | "hearing-speech" | "skin-condition";
 export type Visibility = "public" | "accepted" | "request" | "private";
 export type Membership = "Free" | "Premium" | "Premium Plus";
-export type Profile = { id: string; name: string; age: number; city: string; profession: string; education: string; image: string; category: ProfileCategory; verified: boolean; active: boolean; compatibility: number; tags: string[]; about: string; };
+export type MediaKind = "image" | "video";
+export type ProfileMedia = { id: string; kind: MediaKind; src: string; poster?: string; alt: string; visibility: Visibility; duration?: string; };
+export type Profile = { id: string; name: string; age: number; city: string; profession: string; education: string; image: string; media: ProfileMedia[]; category: ProfileCategory; verified: boolean; active: boolean; compatibility: number; tags: string[]; about: string; prompt?: string; };
 export type Interest = { id: string; profileId: string; type: "received" | "sent" | "accepted" | "declined"; date: string; };
 export type Notification = { id: string; title: string; description: string; time: string; unread: boolean; type: "interest" | "view" | "photo" | "system"; };
+export type EngagementMoment = { id: string; eyebrow: string; title: string; description: string; action: string; type: "profile" | "prompt" | "safety" | "profile-strength"; };
 export const BRAND = { name: "Advaita Matrimony", tagline: "Meaningful connections. Built on trust." } as const;
