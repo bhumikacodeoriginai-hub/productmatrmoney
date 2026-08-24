@@ -4,13 +4,11 @@ import { Heart, RotateCcw, SlidersHorizontal, Star } from "lucide-react-native";
 import { router } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { MediaBadge, MediaCover } from "../../components/media-card";
-import { ADVAITA_INTRO_VIDEO } from "../../lib/media";
 
-const videoDemo = ADVAITA_INTRO_VIDEO;
 const cards=[
   {id:"meera",name:"Meera Shah",meta:"30 · Financial Analyst · Pune",score:"79%",prompt:"I value independence, direct conversations and people who keep their word.",media:[{kind:"image" as const,src:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=700&q=80"}]},
   {id:"isha",name:"Isha Kapoor",meta:"27 · Clinical Psychologist · Delhi",score:"76%",prompt:"A green flag I bring: I ask questions before I make assumptions.",media:[{kind:"image" as const,src:"https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=700&q=80"}]},
-  {id:"ananya",name:"Ananya Rao",meta:"29 · Product Designer · Bengaluru",score:"92%",prompt:"A small joy I never get tired of: finding a new walking route and a good bookshop.",media:[{kind:"video" as const,src:videoDemo,poster:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=80",duration:"0:18"}]},
+  {id:"ananya",name:"Ananya Rao",meta:"29 · Product Designer · Bengaluru",score:"92%",prompt:"A small joy I never get tired of: finding a new walking route and a good bookshop.",media:[{kind:"image" as const,src:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=80"}]},
 ];
 
 export default function Discover(){
