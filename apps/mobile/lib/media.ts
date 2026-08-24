@@ -5,3 +5,5 @@ export const PRODUCT_VIDEO_SRC =
 export const PRODUCT_VIDEO_POSTER =
   "https://raw.githubusercontent.com/bhumikacodeoriginai-hub/productmatrmoney/main/apps/web/public/media/product/advaithamatrimony-poster.svg";
 export const PRODUCT_VIDEO_DURATION = "0:10";
+export const PRODUCT_POSTER =
+  "https://raw.githubusercontent.com/bhumikacodeoriginai-hub/productmatrmoney/main/apps/web/public/media/product/posteradvaita.jpeg";

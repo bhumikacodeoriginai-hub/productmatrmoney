@@ -739,3 +739,16 @@ body { font-family:'DM Sans',ui-sans-serif,system-ui,sans-serif; letter-spacing:
 .stories-grid .story-card { animation:none; }
 @media (max-width:960px) { .stories-grid { grid-template-columns:1fr 1fr; } }
 @media (max-width:620px) { .stories-grid { grid-template-columns:1fr; } }
+
+
+/* poster showcase — responsive brand billboard */
+.poster-showcase { padding:66px 0; background:radial-gradient(60% 100% at 50% 0,rgba(224,72,63,.06),transparent 60%),linear-gradient(180deg,#fff,#fff8f7); }
+.poster-shell { display:flex; flex-direction:column; align-items:center; gap:22px; text-align:center; }
+.poster-eyebrow { display:inline-flex; align-items:center; gap:8px; padding:8px 15px; border-radius:999px; font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--red-dark); background:var(--red-soft); border:1px solid var(--red-border); }
+.poster-eyebrow svg { color:var(--gold); }
+.poster-frame { position:relative; width:min(1040px,100%); padding:10px; border-radius:26px; background:linear-gradient(135deg,#fff,#fff1ef 60%,#fff6ec); border:1px solid var(--red-border); box-shadow:0 34px 74px rgba(91,11,18,.2),0 10px 24px rgba(91,11,18,.1); transition:transform .55s cubic-bezier(.22,.9,.28,1),box-shadow .55s; will-change:transform; }
+.poster-frame:hover { transform:translateY(-6px); box-shadow:0 44px 96px rgba(91,11,18,.24),0 12px 28px rgba(91,11,18,.12); }
+.poster-frame img { display:block; width:100%; height:auto; border-radius:18px; }
+.poster-actions { display:flex; flex-direction:column; align-items:center; gap:14px; }
+.poster-tag { color:var(--ink-soft); font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+@media (max-width:760px) { .poster-showcase { padding:44px 0; } .poster-frame { padding:7px; border-radius:20px; } .poster-frame img { border-radius:13px; } }

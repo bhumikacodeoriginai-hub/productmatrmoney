@@ -271,6 +271,9 @@ export const uiTranslations: Record<string, string> = {
   "We connected over a love for design and long walks. The first conversation felt easy, and the rest just followed.": "ವಿನ್ಯಾಸ ಮತ್ತು ದೀರ್ಘ ನಡಿಗೆಗಳ ಪ್ರೀತಿಯಿಂದ ನಾವು ಸಂಪರ್ಕಗೊಂಡೆವು. ಮೊದಲ ಸಂಭಾಷಣೆ ಸುಲಭವಾಗಿತ್ತು, ಉಳಿದದ್ದು ತಾನಾಗಿಯೇ ಸಾಗಿತು.",
   "Being truly heard mattered most to us. Here that came first — everything meaningful grew from it.": "ನಿಜವಾಗಿ ಆಲಿಸಲ್ಪಡುವುದು ನಮಗೆ ಅತ್ಯಂತ ಮುಖ್ಯವಾಗಿತ್ತು. ಇಲ್ಲಿ ಅದು ಮೊದಲು ಬಂತು — ಅರ್ಥಪೂರ್ಣವಾದ ಎಲ್ಲವೂ ಅದರಿಂದ ಬೆಳೆಯಿತು.",
   "No endless scrolling — just a few thoughtful introductions. One of them quietly changed my life.": "ಅಂತ್ಯವಿಲ್ಲದ ಸ್ಕ್ರೋಲಿಂಗ್ ಇಲ್ಲ — ಕೆಲವು ಚಿಂತನಶೀಲ ಪರಿಚಯಗಳಷ್ಟೇ. ಅವುಗಳಲ್ಲಿ ಒಂದು ನನ್ನ ಬದುಕನ್ನು ಶಾಂತವಾಗಿ ಬದಲಾಯಿಸಿತು.",
+  "Introducing Advaita Matrimony": "Advaita Matrimony ಪರಿಚಯ",
+  "Register today": "ಇಂದೇ ನೋಂದಾಯಿಸಿ",
+  "Harmony · Unity · Love · For a Lifetime": "ಸಾಮರಸ್ಯ · ಏಕತೆ · ಪ್ರೀತಿ · ಜೀವಮಾನ ಪೂರ್ತಿ",
 };
 
 const reverseTranslations = Object.fromEntries(Object.entries(uiTranslations).map(([english, kannada]) => [kannada, english]));
