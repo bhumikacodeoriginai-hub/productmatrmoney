@@ -7,7 +7,8 @@ export type Profile = {
   tags: string[]; about: string; prompt?: string;
 };
 
-const videoDemo = "https://videos.pexels.com/video-files/853800/853800-hd_1920_1080_30fps.mp4";
+// Keep the web experience on the same Git-managed asset that the mobile app references.
+const videoDemo = "/media/profiles/ananya/advaithamatrimony.mp4";
 
 export const profiles: Profile[] = [
   { id:"ananya", name:"Ananya Rao", age:29, city:"Bengaluru", profession:"Product Designer", education:"NID Ahmedabad", image:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=85", media:[{id:"ananya-photo",kind:"image",src:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=85",alt:"Ananya smiling in natural light",visibility:"public"},{id:"ananya-video",kind:"video",src:videoDemo,poster:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=85",alt:"Ananya's short introduction",visibility:"accepted",duration:"0:18"}], category:"General matrimony", verified:true, active:true, compatibility:92, tags:["Design", "Kannada", "Vegetarian"], prompt:"A small joy I never get tired of: finding a new walking route and a good bookshop.", about:"Curious, kind and quietly ambitious. I enjoy long walks, thoughtful conversations and making space for people to be themselves." },
