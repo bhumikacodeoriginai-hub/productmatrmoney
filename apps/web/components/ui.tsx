@@ -16,7 +16,7 @@ export function VerifiedBadge({ label = "Verified" }: { label?: string }) {
 export function PremiumBadge() { return <span className="pill pill-premium"><Star size={12} fill="currentColor" /> Premium</span>; }
 
 export function Toast({ message, onClose }: { message: string; onClose: () => void }) {
-  return <div role="status" style={{ position:"fixed", zIndex:80, right:20, bottom:20, display:"flex", gap:10, alignItems:"center", padding:"13px 16px", color:"#fff", background:"#18233d", borderRadius:12, boxShadow:"0 15px 35px rgba(24,35,61,.2)", fontSize:13 }}><Check size={16} color="#7ee0cf" /> {message}<button onClick={onClose} aria-label="Dismiss notification" style={{ border:0, background:"none", color:"#aeb7ca", marginLeft:8 }}>×</button></div>;
+  return <div role="status" style={{ position:"fixed", zIndex:80, right:20, bottom:20, display:"flex", gap:10, alignItems:"center", padding:"13px 16px", color:"#fff", background:"var(--red-deep)", borderRadius:12, boxShadow:"0 15px 35px rgba(91,11,18,.2)", fontSize:13 }}><Check size={16} color="#7ee0cf" /> {message}<button onClick={onClose} aria-label="Dismiss notification" style={{ border:0, background:"none", color:"#aeb7ca", marginLeft:8 }}>×</button></div>;
 }
 
 export function MediaPreview({ media, className = "", showControls = true, autoPlay = false }: { media: ProfileMedia[]; className?: string; showControls?: boolean; autoPlay?: boolean }) {
