@@ -3,63 +3,28 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 export type Language = "en" | "kn";
 type LanguageKey = keyof typeof copy.en;
-type LanguageContextValue = { language: Language; setLanguage: (language: Language) => void; t: (key: LanguageKey) => string };
+type LanguageContextValue = { language: Language; setLanguage: (language: Language) => void; t: (key: LanguageKey) => string; translate: (value: string) => string };
 
 const copy = {
   en: {
-    home: "Home",
-    discover: "Discover",
-    matches: "Matches",
-    messages: "Messages",
-    profile: "Profile",
-    language: "Language",
-    englishIndia: "English (India)",
-    kannada: "ಕನ್ನಡ",
-    beginJourney: "Begin your journey",
-    privacyInclusive: "Privacy-first · Inclusive by design",
-    tagline: "Where hearts meet, lives belong.",
-    kannadaTagline: "ಮನಗಳು ಸೇರುವ, ಬದುಕುಗಳು ಬೆಸೆಯುವ ತಾಣ.",
-    yourProfile: "YOUR PROFILE",
-    identityVerified: "Identity verified",
-    identityCopy: "Your profile is visible to verified members.",
-    privacyControls: "Privacy controls",
-    privacyCopy: "You choose what to share and when.",
+    home: "Home", discover: "Discover", matches: "Matches", messages: "Messages", profile: "Profile", language: "Language", englishIndia: "English (India)", kannada: "ಕನ್ನಡ", dateLabel: "MONDAY, 24 AUGUST", heroKicker: "YOUR SPACE IS TAKING SHAPE", heroBrandKannada: "ಮನಗಳು ಸೇರುವ ತಾಣ", heroTitle: "Your matches are getting better.", heroCount: "12 new compatible profiles today.", platformKicker: "ONE PLATFORM · EVERY JOURNEY", belonging: "Find your kind of belonging.", audienceMantra: "ಮನಗಳು ಸೇರುವ ತಾಣ", activityInterest: "Arjun Nair sent you an interest", activityShortlisted: "Your profile was shortlisted", activityPrivacy: "Review your private photo settings", timeMinutesAgo: "12 min ago", timeYesterday: "Yesterday", timeDaysAgo: "2 days ago", passProfile: "Pass profile", passFeedback: "Profile passed", interestSent: "Interest sent", interestFeedback: "sent you an interest", pauseProfile: "Pause profile intro", playProfile: "Play profile intro", shortlistedFeedback: "saved to shortlist", viewMedia: "View media", beginJourney: "Begin your journey", privacyInclusive: "Privacy-first · Inclusive by design", tagline: "Where hearts meet, lives belong.", kannadaTagline: "ಮನಗಳು ಸೇರುವ, ಬದುಕುಗಳು ಬೆಸೆಯುವ ತಾಣ.", yourProfile: "YOUR PROFILE", identityVerified: "Identity verified", identityCopy: "Your profile is visible to verified members.", privacyControls: "Privacy controls", privacyCopy: "You choose what to share and when.", discoverKicker: "DISCOVER", peopleWithIntention: "People with intention", verifiedOnly: "Verified only", allProfiles: "All profiles", quickFilters: "Quick filters", filterCopy: "Age, location, education and privacy preferences can be expanded here.", done: "Done", picks: "TODAY'S THOUGHTFUL PICKS", aboutThem: "A LITTLE MORE ABOUT THEM", sendInterest: "Send interest", swipeHint: "Swipe left to pass · right to send interest · tap actions for control", matchesKicker: "MATCHES", preferenceMatches: "Your preference matches", rightConnection: "The right connection takes time.", matchesCopy: "As your profile grows, your recommendations will become more thoughtful and personal.", messagesKicker: "MESSAGES", thoughtfulConversations: "Thoughtful conversations", startInterest: "Start with an interest.", messagesCopy: "Your conversations will appear here after you connect with someone.", backDiscover: "Back to discover", preferenceMatch: "A PREFERENCE MATCH", verified: "Verified", privacyControlled: "Privacy controlled", requestPhotos: "Request private photos", photoRequestSent: "Photo request sent", messageProfile: "Message profile", shortlistProfile: "Shortlist this profile", shareCopy: "You decide what to share and when.", mediaPrivacy: "Every media item has its own privacy setting. No automatic sharing.", introVideo: "Intro video", productIntro: "Advaita product introduction", playProduct: "Play product video", pauseProduct: "Pause product video", soundOn: "Turn product video sound on", muteProduct: "Mute product video", openProfile: "Open profile", seeAll: "See all", recommended: "Recommended for you", howAdvaita: "How Advaita works", productHint: "Tap the volume button to hear the product introduction.", todayPicks: "See today's picks", dailyRitual: "A SMALL DAILY RITUAL", ritualTitle: "Answer one question to make your profile feel more like you.", ritualPrompt: "What makes a home feel like home?", activity: "Your activity", viewAll: "View all",
   },
   kn: {
-    home: "ಮುಖಪುಟ",
-    discover: "ಹುಡುಕಿ",
-    matches: "ಹೊಂದಾಣಿಕೆಗಳು",
-    messages: "ಸಂದೇಶಗಳು",
-    profile: "ಪ್ರೊಫೈಲ್",
-    language: "ಭಾಷೆ",
-    englishIndia: "ಇಂಗ್ಲಿಷ್ (ಭಾರತ)",
-    kannada: "ಕನ್ನಡ",
-    beginJourney: "ನಿಮ್ಮ ಪ್ರಯಾಣ ಆರಂಭಿಸಿ",
-    privacyInclusive: "ಗೌಪ್ಯತೆ ಮೊದಲು · ಎಲ್ಲರನ್ನೂ ಒಳಗೊಂಡ ವಿನ್ಯಾಸ",
-    tagline: "ಮನಗಳು ಸೇರುವ, ಬದುಕುಗಳು ಬೆಸೆಯುವ ತಾಣ.",
-    kannadaTagline: "ಮನಗಳು ಸೇರುವ, ಬದುಕುಗಳು ಬೆಸೆಯುವ ತಾಣ.",
-    yourProfile: "ನಿಮ್ಮ ಪ್ರೊಫೈಲ್",
-    identityVerified: "ಗುರುತು ಪರಿಶೀಲಿಸಲಾಗಿದೆ",
-    identityCopy: "ನಿಮ್ಮ ಪ್ರೊಫೈಲ್ ಪರಿಶೀಲಿತ ಸದಸ್ಯರಿಗೆ ಗೋಚರಿಸುತ್ತದೆ.",
-    privacyControls: "ಗೌಪ್ಯತಾ ನಿಯಂತ್ರಣಗಳು",
-    privacyCopy: "ಏನು ಮತ್ತು ಯಾವಾಗ ಹಂಚಿಕೊಳ್ಳಬೇಕು ಎಂಬುದು ನಿಮ್ಮ ಆಯ್ಕೆ.",
+    home: "ಮುಖಪುಟ", discover: "ಹುಡುಕಿ", matches: "ಹೊಂದಾಣಿಕೆಗಳು", messages: "ಸಂದೇಶಗಳು", profile: "ಪ್ರೊಫೈಲ್", language: "ಭಾಷೆ", englishIndia: "ಇಂಗ್ಲಿಷ್ (ಭಾರತ)", kannada: "ಕನ್ನಡ", dateLabel: "ಆಗಸ್ಟ್ 24, ಸೋಮವಾರ", heroKicker: "ನಿಮ್ಮ ಸ್ಥಳ ರೂಪ ಪಡೆಯುತ್ತಿದೆ", heroBrandKannada: "ಮನಗಳು ಸೇರುವ, ಬದುಕುಗಳು ಬೆಸೆಯುವ ತಾಣ", heroTitle: "ನಿಮ್ಮ ಹೊಂದಾಣಿಕೆಗಳು ಉತ್ತಮವಾಗುತ್ತಿವೆ.", heroCount: "ಇಂದು 12 ಹೊಸ ಹೊಂದಾಣಿಕೆಗಳಿವೆ.", platformKicker: "ಒಂದು ವೇದಿಕೆ · ಪ್ರತಿಯೊಂದು ಪ್ರಯಾಣ", belonging: "ನಿಮ್ಮ ರೀತಿಯ ಬಂಧವನ್ನು ಕಂಡುಕೊಳ್ಳಿ.", audienceMantra: "ಮನಗಳು ಸೇರುವ ತಾಣ", activityInterest: "ಅರ್ಜುನ್ ನಾಯರ್ ನಿಮಗೆ ಆಸಕ್ತಿ ಕಳುಹಿಸಿದ್ದಾರೆ", activityShortlisted: "ನಿಮ್ಮ ಪ್ರೊಫೈಲ್ ಆಯ್ಕೆಯಾಗಿದೆ", activityPrivacy: "ನಿಮ್ಮ ಖಾಸಗಿ ಫೋಟೋ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಪರಿಶೀಲಿಸಿ", timeMinutesAgo: "12 ನಿಮಿಷಗಳ ಹಿಂದೆ", timeYesterday: "ನಿನ್ನೆ", timeDaysAgo: "2 ದಿನಗಳ ಹಿಂದೆ", passProfile: "ಪ್ರೊಫೈಲ್ ಬಿಟ್ಟುಹೋಗಿ", passFeedback: "ಪ್ರೊಫೈಲ್ ಬಿಟ್ಟುಹೋಗಲಾಗಿದೆ", interestSent: "ಆಸಕ್ತಿ ಕಳುಹಿಸಲಾಗಿದೆ", interestFeedback: "ಅವರಿಗೆ ಆಸಕ್ತಿ ಕಳುಹಿಸಲಾಗಿದೆ", pauseProfile: "ಪ್ರೊಫೈಲ್ ಪರಿಚಯ ವಿರಾಮಗೊಳಿಸಿ", playProfile: "ಪ್ರೊಫೈಲ್ ಪರಿಚಯ ಪ್ಲೇ ಮಾಡಿ", shortlistedFeedback: "ಆಯ್ದವರ ಪಟ್ಟಿಗೆ ಉಳಿಸಲಾಗಿದೆ", viewMedia: "ಮಾಧ್ಯಮ ನೋಡಿ", beginJourney: "ನಿಮ್ಮ ಪ್ರಯಾಣ ಆರಂಭಿಸಿ", privacyInclusive: "ಗೌಪ್ಯತೆ ಮೊದಲು · ಎಲ್ಲರನ್ನೂ ಒಳಗೊಂಡ ವಿನ್ಯಾಸ", tagline: "ಮನಗಳು ಸೇರುವ, ಬದುಕುಗಳು ಬೆಸೆಯುವ ತಾಣ.", kannadaTagline: "ಮನಗಳು ಸೇರುವ, ಬದುಕುಗಳು ಬೆಸೆಯುವ ತಾಣ.", yourProfile: "ನಿಮ್ಮ ಪ್ರೊಫೈಲ್", identityVerified: "ಗುರುತು ಪರಿಶೀಲಿಸಲಾಗಿದೆ", identityCopy: "ನಿಮ್ಮ ಪ್ರೊಫೈಲ್ ಪರಿಶೀಲಿತ ಸದಸ್ಯರಿಗೆ ಗೋಚರಿಸುತ್ತದೆ.", privacyControls: "ಗೌಪ್ಯತಾ ನಿಯಂತ್ರಣಗಳು", privacyCopy: "ಏನು ಮತ್ತು ಯಾವಾಗ ಹಂಚಿಕೊಳ್ಳಬೇಕು ಎಂಬುದು ನಿಮ್ಮ ಆಯ್ಕೆ.", discoverKicker: "ಹುಡುಕಿ", peopleWithIntention: "ಉದ್ದೇಶಪೂರ್ವಕ ಜನರು", verifiedOnly: "ಪರಿಶೀಲಿತ ಮಾತ್ರ", allProfiles: "ಎಲ್ಲಾ ಪ್ರೊಫೈಲ್‌ಗಳು", quickFilters: "ತ್ವರಿತ ಫಿಲ್ಟರ್‌ಗಳು", filterCopy: "ವಯಸ್ಸು, ಸ್ಥಳ, ಶಿಕ್ಷಣ ಮತ್ತು ಗೌಪ್ಯತಾ ಆದ್ಯತೆಗಳನ್ನು ಇಲ್ಲಿ ವಿಸ್ತರಿಸಬಹುದು.", done: "ಮುಗಿದಿದೆ", picks: "ಇಂದಿನ ಚಿಂತನಶೀಲ ಆಯ್ಕೆಗಳು", aboutThem: "ಅವರ ಬಗ್ಗೆ ಇನ್ನಷ್ಟು", sendInterest: "ಆಸಕ್ತಿ ಕಳುಹಿಸಿ", swipeHint: "ಬಿಟ್ಟುಹೋಗಲು ಎಡಕ್ಕೆ · ಆಸಕ್ತಿ ಕಳುಹಿಸಲು ಬಲಕ್ಕೆ · ನಿಯಂತ್ರಣಕ್ಕಾಗಿ ಕ್ರಿಯೆಗಳನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ", matchesKicker: "ಹೊಂದಾಣಿಕೆಗಳು", preferenceMatches: "ನಿಮ್ಮ ಆದ್ಯತೆಗಳ ಹೊಂದಾಣಿಕೆಗಳು", rightConnection: "ಸರಿಯಾದ ಸಂಪರ್ಕಕ್ಕೆ ಸಮಯ ಬೇಕಾಗುತ್ತದೆ.", matchesCopy: "ನಿಮ್ಮ ಪ್ರೊಫೈಲ್ ಬೆಳೆದಂತೆ, ನಿಮ್ಮ ಶಿಫಾರಸುಗಳು ಹೆಚ್ಚು ವೈಯಕ್ತಿಕ ಮತ್ತು ಚಿಂತನಶೀಲವಾಗುತ್ತವೆ.", messagesKicker: "ಸಂದೇಶಗಳು", thoughtfulConversations: "ಚಿಂತನಶೀಲ ಸಂಭಾಷಣೆಗಳು", startInterest: "ಆಸಕ್ತಿಯಿಂದ ಆರಂಭಿಸಿ.", messagesCopy: "ಯಾರೊಂದಿಗಾದರೂ ಸಂಪರ್ಕಿಸಿದ ನಂತರ ನಿಮ್ಮ ಸಂಭಾಷಣೆಗಳು ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತವೆ.", backDiscover: "ಹುಡುಕಾಟಕ್ಕೆ ಹಿಂತಿರುಗಿ", preferenceMatch: "ಆದ್ಯತೆ ಹೊಂದಾಣಿಕೆ", verified: "ಪರಿಶೀಲಿತ", privacyControlled: "ಗೌಪ್ಯತೆ ನಿಯಂತ್ರಿತ", requestPhotos: "ಖಾಸಗಿ ಫೋಟೋಗಳಿಗೆ ವಿನಂತಿಸಿ", photoRequestSent: "ಫೋಟೋ ವಿನಂತಿ ಕಳುಹಿಸಲಾಗಿದೆ", messageProfile: "ಪ್ರೊಫೈಲ್‌ಗೆ ಸಂದೇಶ ಕಳುಹಿಸಿ", shortlistProfile: "ಈ ಪ್ರೊಫೈಲ್ ಆಯ್ಕೆಮಾಡಿ", shareCopy: "ಏನು ಮತ್ತು ಯಾವಾಗ ಹಂಚಿಕೊಳ್ಳಬೇಕು ಎಂಬುದು ನಿಮ್ಮ ಆಯ್ಕೆ.", mediaPrivacy: "ಪ್ರತಿಯೊಂದು ಮಾಧ್ಯಮಕ್ಕೂ ತನ್ನದೇ ಗೌಪ್ಯತಾ ಸೆಟ್ಟಿಂಗ್ ಇದೆ. ಸ್ವಯಂಚಾಲಿತ ಹಂಚಿಕೆ ಇಲ್ಲ.", introVideo: "ಪರಿಚಯ ವೀಡಿಯೊ", productIntro: "Advaita ಉತ್ಪನ್ನ ಪರಿಚಯ", playProduct: "ಉತ್ಪನ್ನ ವೀಡಿಯೊ ಪ್ಲೇ ಮಾಡಿ", pauseProduct: "ಉತ್ಪನ್ನ ವೀಡಿಯೊ ವಿರಾಮಗೊಳಿಸಿ", soundOn: "ಉತ್ಪನ್ನ ವೀಡಿಯೊ ಧ್ವನಿ ಆನ್ ಮಾಡಿ", muteProduct: "ಉತ್ಪನ್ನ ವೀಡಿಯೊ ಮ್ಯೂಟ್ ಮಾಡಿ", openProfile: "ಪ್ರೊಫೈಲ್ ತೆರೆಯಿರಿ", seeAll: "ಎಲ್ಲವನ್ನೂ ನೋಡಿ", recommended: "ನಿಮಗಾಗಿ ಶಿಫಾರಸುಗಳು", howAdvaita: "Advaita ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ", productHint: "ಧ್ವನಿ ಕೇಳಲು ವಾಲ್ಯೂಮ್ ಬಟನ್ ಟ್ಯಾಪ್ ಮಾಡಿ.", todayPicks: "ಇಂದಿನ ಆಯ್ಕೆಗಳನ್ನು ನೋಡಿ", dailyRitual: "ಒಂದು ಸಣ್ಣ ದೈನಂದಿನ ಅಭ್ಯಾಸ", ritualTitle: "ನಿಮ್ಮ ಪ್ರೊಫೈಲ್ ನಿಮ್ಮಂತಾಗಲು ಒಂದು ಪ್ರಶ್ನೆಗೆ ಉತ್ತರಿಸಿ.", ritualPrompt: "ಮನೆ ಎಂದರೆ ನಿಮಗೆ ಏನು ಅನಿಸುತ್ತದೆ?", activity: "ನಿಮ್ಮ ಚಟುವಟಿಕೆ", viewAll: "ಎಲ್ಲವನ್ನೂ ನೋಡಿ",
   },
 } as const;
 
 const STORAGE_KEY = "advaita-language";
 const LanguageContext = createContext<LanguageContextValue | null>(null);
+const reverse = Object.fromEntries(Object.entries(copy.kn).map(([key, value]) => [value, copy.en[key as LanguageKey]]));
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>("en");
   const [ready, setReady] = useState(false);
   useEffect(() => { AsyncStorage.getItem(STORAGE_KEY).then(saved => { if (saved === "en" || saved === "kn") setLanguage(saved); setReady(true); }).catch(() => setReady(true)); }, []);
   useEffect(() => { if (ready) void AsyncStorage.setItem(STORAGE_KEY, language).catch(() => undefined); }, [language, ready]);
-  const value = useMemo(() => ({ language, setLanguage, t: (key: LanguageKey) => copy[language][key] }), [language]);
+  const value = useMemo(() => ({ language, setLanguage, t: (key: LanguageKey) => copy[language][key], translate: (value: string) => language === "kn" ? (copy.kn[value as LanguageKey] || value) : (reverse[value] || value) }), [language]);
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 }
 
-export function useLanguage() {
-  const context = useContext(LanguageContext);
-  if (!context) throw new Error("useLanguage must be used inside LanguageProvider");
-  return context;
-}
+export function useLanguage() { const context = useContext(LanguageContext); if (!context) throw new Error("useLanguage must be used inside LanguageProvider"); return context; }
